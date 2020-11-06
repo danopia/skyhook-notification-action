@@ -1,0 +1,16 @@
+name: test
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Report successful
+      uses: ./
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        status: success

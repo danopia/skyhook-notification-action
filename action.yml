@@ -1,0 +1,18 @@
+name: 'Skyhook Notification'
+description: 'Sends a message to an IRC channel, etc'
+inputs:
+  github-token:
+    description: 'Repository access token from ${{ secrets.GITHUB_TOKEN }}'
+    required: true
+  status:
+    description: 'Type of message: "success", "failure", "pending"'
+    required: true
+  message:
+    description: 'Optional extra text to send with the notification'
+    required: false
+  url:
+    description: 'Optional URL to attach to the notification (defaults to the current workflow)'
+    required: false
+runs:
+  using: 'node12'
+  main: 'index.js'
