@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-try {
+(async () => {
   const octokit = github.getOctokit(core.getInput('github-token'));
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
 
@@ -24,6 +24,8 @@ try {
   });
   console.log(`Webhooks: ${JSON.stringify(webhooks, undefined, 2)}`);
 
-} catch (error) {
+})().then(() => {
+  console.log('All done.');
+}, error => {
   core.setFailed(error.message);
-}
+});
