@@ -2,7 +2,7 @@ name: 'Skyhook Notification'
 description: 'Sends a message to an IRC channel, etc'
 inputs:
   github-token:
-    description: 'Repository access token from ${{ secrets.GITHUB_TOKEN }}'
+    description: 'Repository access token from \$\{\{ secrets.GITHUB_TOKEN \}\}'
     required: true
   status:
     description: 'Type of message: "success", "failure", "pending"'
